@@ -11,6 +11,11 @@
 							<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article">
 
 								<header class="article-header">
+									<?php 
+									if ( has_post_thumbnail() ) {
+											the_post_thumbnail('large');
+										} 
+									?>
 
 									<h1 class="h2 entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
 									<p class="byline entry-meta vcard">
@@ -25,7 +30,9 @@
 								</header>
 
 								<section class="entry-content cf">
-									<?php the_content(); ?>
+									<?php
+										the_content();
+									?>
 								</section>
 
 								<footer class="article-footer cf">
