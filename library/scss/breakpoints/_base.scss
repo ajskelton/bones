@@ -287,7 +287,10 @@ POSTS & CONTENT STYLES
 
 		.page-title {}
 
-		.entry-title {}
+		.entry-title {
+			-ms-word-wrap: break-word;
+			word-wrap: break-word;
+		}
 
 		.archive-title {}
 
@@ -318,68 +321,6 @@ POSTS & CONTENT STYLES
 				margin: 0 0 1.5em;
 			}
 
-
-			ul, ol, table, dl {}
-
-			ul, ol {
-
-				li {}
-
-			}
-
-			ul {
-
-				li {}
-
-			}
-
-			ol {
-
-				li {}
-
-			}
-
-			table {
-				width: 100%;
-				border: 1px solid $gray;
-				margin-bottom: 1.5em;
-
-				caption {
-					margin: 0 0 7px;
-					font-size: 0.75em;
-					color: $meta-gray;
-					text-transform: uppercase;
-					letter-spacing: 1px;
-				}
-			}
-
-			tr {
-				border-bottom: 1px solid $gray;
-
-				&:nth-child(even) {
-					background-color: $light-gray;
-				}
-			}
-
-			td {
-				padding: 7px;
-				border-right: 1px solid $gray;
-
-				&:last-child {
-					border-right: 0;
-				}
-			}
-
-			th {
-				background-color: $light-gray;
-				border-bottom: 1px solid $gray;
-				border-right: 1px solid $gray;
-
-				&:last-child {
-					border-right: 0;
-				}
-			}
-
 			blockquote {
 				margin: 0 0 1.5em 0.75em;
 				padding: 0 0 0 0.75em;
@@ -389,17 +330,6 @@ POSTS & CONTENT STYLES
 
 				&:before {}
 
-			}
-
-			dl {}
-
-			dt {}
-
-			dd {
-				margin-left: 0;
-				font-size: 0.9em;
-				color: #787878;
-				margin-bottom: 1.5em;
 			}
 
 			img {
@@ -425,15 +355,6 @@ POSTS & CONTENT STYLES
 			.size-thumbnail {
 				max-width: 100%;
 				height: auto;
-			}
-
-			pre {
-				background: $black;
-				color: $light-gray;
-				font-size: 0.9em;
-				padding: 1.5em;
-				margin: 0 0 1.5em;
-				border-radius: 3px;
 			}
 
 		} /* end .entry-content */
@@ -586,6 +507,9 @@ COMMENT STYLES
 	}
 }
 
+.fn {
+	margin:0;
+}
 
 .commentlist {
 	margin: 0;
@@ -599,9 +523,18 @@ COMMENT STYLES
 	padding: 1.5em;
 	border-bottom: 1px solid $light-gray;
 
+	img {
+		max-width:100%;
+	}
+
 	.comment-author {
 		padding: 7px;
 		border: 0;
+	}
+
+	cite {
+		display:block;
+		margin-top:1em;
 	}
 
 	/* vcard */
@@ -855,6 +788,18 @@ SIDEBARS & ASIDES
 		border-radius: 2px;
 		margin-bottom: 1.5em;
 	}
+
+/*********************
+BLOG POST STYLES
+*********************/	
+
+
+.vertical-image {
+	float:right;
+	margin-bottom: 1em;
+	margin-left: 2%;
+	max-width: 33%;
+}
 
 /*********************
 FOOTER STYLES
