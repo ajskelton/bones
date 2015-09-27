@@ -212,7 +212,7 @@ function bones_comments( $comment, $args, $depth ) {
         ?>
         <img data-gravatar="http://www.gravatar.com/avatar/<?php echo md5( $bgauthemail ); ?>?s=40" class="load-gravatar avatar avatar-48 photo" height="40" width="40" src="<?php echo get_template_directory_uri(); ?>/library/images/nothing.gif" />
         <?php // end custom gravatar call ?>
-        <?php printf(__( '<cite class="fn">%1$s</cite> %2$s', 'bonestheme' ), get_comment_author_link(), edit_comment_link(__( '(Edit)', 'bonestheme' ),'  ','') ) ?>
+        <?php printf(__( '<p class="fn">%1$s</p> %2$s', 'bonestheme' ), get_comment_author_link(), edit_comment_link(__( '(Edit)', 'bonestheme' ),'  ','') ) ?>
         <time datetime="<?php echo comment_time('Y-m-j'); ?>"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time(__( 'F jS, Y', 'bonestheme' )); ?> </a></time>
 
       </header>
@@ -243,5 +243,22 @@ function bones_fonts() {
 }
 
 add_action('wp_enqueue_scripts', 'bones_fonts');
+
+/**
+ * Add support for Vertical Featured Images
+ */
+if ( ! function_exists( 'mytheme_vertical_check' ) ) :
+  function mytheme_vertical_check( $html, $post_id, $post_thumbnail_id, $size, $attr ) {
+    $image_data = wp_get_attachment_image_src( $post_thumbnail_id , 'large' );
+    //Get the image width and height from the data provided by wp_get_attachment_image_src()
+    $width  = $image_data[1];
+    $height = $image_data[2];
+    if ( $height > $width ) {
+      $html = str_replace( 'attachment-', 'vertical-image attachment-', $html );
+    }
+    return $html;
+  }
+endif;
+add_filter( 'post_thumbnail_html', 'mytheme_vertical_check', 10, 5 );
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>
