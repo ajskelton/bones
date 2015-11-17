@@ -16,6 +16,13 @@ http://thesassway.com/advanced/modular-css-naming-conventions
 
 ******************************************************************/
 
+/************************
+IMPORTING BOURBON & NEAT
+************************/
+
+@import "bourbon/bourbon";
+@import "neat/neat";
+
 /*********************
 IMPORTING PARTIALS
 These files are needed at the beginning so that we establish all
