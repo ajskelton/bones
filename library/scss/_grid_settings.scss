@@ -1,0 +1,25 @@
+@import "neat/neat-helpers"; 
+
+// Change the grid settings
+$column: 90px;
+$gutter: 30px;
+$grid-columns: 12;
+$max-width: 1200px;
+
+// Define your breakpoints
+$first-breakpoint-value: 481;
+$second-breakpoint-value: 768;
+$third-breakpoint-value: 1030;
+$fourth-breakpoint-value: 1240;
+
+$small-screen: new-breakpoint(max-width em($first-breakpoint-value - 1) 2);
+$medium-screen: new-breakpoint(min-width em($first-breakpoint-value) max-width em($second-breakpoint-value) 4);
+$large-screen: new-breakpoint(min-width em($second-breakpoint-value + 1) max-width em($third-breakpoint-value - 1) 8);
+$xl-screen: new-breakpoint(min-width em($third-breakpoint-value) em($fourth-breakpoint-value - 1) 12);
+$xxl-screen: new-breakpoint(min-width em($fourth-breakpoint-value) 12);
+
+
+$visual-grid: false;
+$visual-grid-color: #D6D6D6;
+$visual-grid-index: front;
+$visual-grid-opacity: 0.4;
